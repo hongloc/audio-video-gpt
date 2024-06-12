@@ -44,6 +44,12 @@ class VideoMaker:
     
     def save(self, path):
         self.make().write_videofile(path, fps=self.fps, threads=8)
+        print("done write file first time")
+        video = VideoFileClip(path)
+        video = video.set_audio(self.audio_clip)
+        # write to video file
+        video.write_videofile("newwwwww.mp4")
+        print('done write file second time')
         # created_video_file_clip = VideoFileClip(path)
         # created_video_file_clip.set_audio(self.audio_clip)
         # created_video_file_clip.write_videofile(path, fps=self.fps, threads=8)
