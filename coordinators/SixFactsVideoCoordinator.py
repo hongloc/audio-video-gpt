@@ -114,6 +114,6 @@ class SixFactsVideoCoordinator:
             tts_list.append(tts_clip)
         comp_audio = CompositeAudioClip(tts_list)
         path = os.path.join(ROOT_DIR, "tmp_audio", str(uuid4()) + ".wav")
-        comp_audio.write_audiofile(path, threads=8)
+        comp_audio.write_audiofile(path)
         print("=> comp_audio finished")
         return [comp_audio]
