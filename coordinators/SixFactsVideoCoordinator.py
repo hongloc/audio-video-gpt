@@ -50,7 +50,7 @@ class SixFactsVideoCoordinator:
             print("=> Wrote TTS to " + path)
             tts_clip = AudioFileClip(path)
             # .set_fps(44100).set_duration(9.8).set_start(i*9.8).set_end((i+1)*9.8)
-            image = image.set_audio(tts_clip)
+            # image = image.set_audio(tts_clip)
 
             image = zoom_in_effect(image.set_duration(9.8).set_audio(tts_clip)\
                         .set_start(i*9.8)\
