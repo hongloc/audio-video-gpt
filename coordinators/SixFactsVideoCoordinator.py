@@ -116,4 +116,4 @@ class SixFactsVideoCoordinator:
         # path = os.path.join(ROOT_DIR, "tmp_audio", str(uuid4()) + ".wav")
         # comp_audio.write_videofile(path, threads=8)
         print("=> comp_audio finished")
-        return comp_audio
+        return [comp_audio]
