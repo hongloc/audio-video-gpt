@@ -1,4 +1,4 @@
-from moviepy.editor import CompositeVideoClip, VideoFileClip
+from moviepy.editor import CompositeVideoClip, VideoFileClip, AudioFileClip
 
 class VideoMaker:
 
@@ -46,6 +46,7 @@ class VideoMaker:
         self.make().write_videofile(path, fps=self.fps, threads=8)
         print("done write file first time")
         video = VideoFileClip(path)
+        audio = AudioFileClip("/content/audio-video-gpt/result.wav")
         video = video.set_audio(self.audio_clip)
         # write to video file
         video.write_videofile("newwwwww.mp4")
