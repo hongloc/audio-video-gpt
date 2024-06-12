@@ -23,8 +23,9 @@ class VideoMaker:
             self.set_content_maker(coordinator.make_content)
             self.set_watermark_maker(coordinator.make_watermark)
 
-        self.tts = tts
-        self.set_audio_clip(coordinator.make_audio)
+            self.tts = tts
+            self.set_audio_clip(coordinator.make_audio)
+            print('self_audio_clip: ', self.audio_clip)
 
     def set_background_maker(self, background):
         self.background = background

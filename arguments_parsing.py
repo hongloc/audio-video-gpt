@@ -54,7 +54,7 @@ def get_arguments():
     parser.add_argument('-m', '--model', 
                         help='Model to be used by G4F (required if selected factory is G4F)',
                         type=str,
-                        choices=['gpt-3.5-turbo'],
+                        choices=['gpt-3.5-turbo', 'gpt-4o'],
                         default='gpt-3.5-turbo')
     
 

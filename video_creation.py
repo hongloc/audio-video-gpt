@@ -1,5 +1,5 @@
 from VideoMaker import *
-from media_generators import Tts
+from media_generators.Tts import TTS
 
 def create_video(coordinator_class, content_factory_class, arguments):
     content_factory = content_factory_class(arguments)
@@ -10,7 +10,7 @@ def create_video(coordinator_class, content_factory_class, arguments):
         'Georgia-Bold',
         'Georgia')
     
-    tts = Tts()
+    tts = TTS()
     video_maker = VideoMaker(
         video_coordinator,
         ('h', arguments['height']) if arguments['height'] else ('w', arguments['width']),
