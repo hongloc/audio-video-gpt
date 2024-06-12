@@ -43,14 +43,17 @@ class VideoMaker:
         return CompositeVideoClip([*self.background(self), *self.content(self), *self.watermark(self), *self.audio_clip(self)])
     
     def save(self, path):
-        self.make().write_videofile(path, fps=self.fps, threads=8)
-        print("done write file first time")
-        video = VideoFileClip(path)
-        audio = AudioFileClip("/content/audio-video-gpt/result.wav")
-        video = video.set_audio(self.audio_clip)
+        self.make().write_videofile(path, fps=self.fps, threads=4)
+        # print("done write file first time")
+        # video = VideoFileClip(path)
+        # audio = AudioFileClip("/content/audio-video-gpt/result.wav")
+        # video = video.set_audio(self.audio_clip)
         # write to video file
-        video.write_videofile("newwwwww.mp4")
-        print('done write file second time')
+        # video.write_videofile("newwwwww.mp4")
+        # print('done write file second time')
+
+
+
         # created_video_file_clip = VideoFileClip(path)
         # created_video_file_clip.set_audio(self.audio_clip)
         # created_video_file_clip.write_videofile(path, fps=self.fps, threads=8)

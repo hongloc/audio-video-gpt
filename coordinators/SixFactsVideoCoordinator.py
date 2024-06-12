@@ -112,10 +112,14 @@ class SixFactsVideoCoordinator:
             print("=> Wrote TTS to " + path)
             tts_clip = AudioFileClip(path).set_fps(44100).set_duration(9.8).set_start(i*9.8).set_end((i+1)*9.8)
             tts_list.append(tts_clip)
-        comp_audio = CompositeAudioClip(tts_list)
-        path = os.path.join(ROOT_DIR, "result" + ".wav")
-        comp_audio.write_audiofile(path)
-        return []
+        # comp_audio = CompositeAudioClip(tts_list)
+        # path = os.path.join(ROOT_DIR, "result" + ".wav")
+        # comp_audio.write_audiofile(path)
+        # return []
+
+
+        return concatenate_audioclips(tts_list)
+
         # return tts_list
         # return [concatenate_audioclips(tts_list)]
         # comp_audio = CompositeAudioClip(tts_list)
