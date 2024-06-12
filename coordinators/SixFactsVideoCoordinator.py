@@ -118,7 +118,7 @@ class SixFactsVideoCoordinator:
         # return []
 
 
-        return concatenate_audioclips(tts_list)
+        return [concatenate_audioclips(tts_list)]
 
         # return tts_list
         # return [concatenate_audioclips(tts_list)]
