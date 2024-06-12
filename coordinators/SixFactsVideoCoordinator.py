@@ -48,7 +48,7 @@ class SixFactsVideoCoordinator:
             script = re.sub(r'[^\w\s.?!]', '', f['content'])
             video_maker.tts.synthesize(script, path)
             print("=> Wrote TTS to " + path)
-            # tts_clip = AudioFileClip(path)
+            tts_clip = AudioFileClip(path)
             # .set_fps(44100).set_duration(9.8).set_start(i*9.8).set_end((i+1)*9.8)
             image = image.set_audio(tts_clip)
 
