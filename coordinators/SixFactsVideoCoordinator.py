@@ -1,4 +1,4 @@
-from moviepy.editor import ColorClip, ImageClip, CompositeVideoClip, TextClip
+from moviepy.editor import ColorClip, ImageClip, CompositeVideoClip, TextClip, AudioFileClip, CompositeAudioClip
 from icrawler.builtin import GoogleImageCrawler
 import json, random, os
 
@@ -100,9 +100,13 @@ class SixFactsVideoCoordinator:
 
     def make_audio(self, video_maker):
         tts_list = []
+        print('inside make_audio')
+        print('self content: ', self.content)
         for i, element in enumerate(self.content):
             path = os.path.join(ROOT_DIR, "tmp_audio", str(uuid4()) + ".wav")
+            print('element: ', element)
             script = re.sub(r'[^\w\s.?!]', '', element['content'])
+
             video_maker.tts.synthesize(script, path)
             
             print("=> Wrote TTS to " + path)

@@ -40,7 +40,7 @@ class VideoMaker:
         self.audio_clip = audio_clip
 
     def make(self):
-        return CompositeVideoClip([*self.background(self), *self.content(self), *self.watermark(self)]).set_audio(self.audio_clip)
+        return CompositeVideoClip([*self.background(self), *self.content(self), *self.watermark(self), *self.audio_clip(self)])
     
     def save(self, path):
-        self.make().write_videofile(path, fps=self.fps, threads=4)
+        self.make().write_videofile(path, fps=self.fps, threads=8)
