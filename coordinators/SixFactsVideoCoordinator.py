@@ -37,8 +37,8 @@ class SixFactsVideoCoordinator:
         self.image_generator = image_generator
 
     def make_background(self, video_maker):
-        background = ColorClip((video_maker.width, video_maker.height), (0,0,0)).set_duration(59)
-        
+        # background = ColorClip((video_maker.width, video_maker.height), (0,0,0)).set_duration(59)
+        background_list = []
         for i, f in enumerate(self.content):
             image = self.image_generator.generate(f['image'])
             image = image.resize(width=video_maker.width) if image.h > image.w else image.resize(height=video_maker.height)
@@ -55,15 +55,16 @@ class SixFactsVideoCoordinator:
             image = zoom_in_effect(image.set_duration(9.8).set_audio(tts_clip)\
                         .set_start(i*9.8)\
                         .set_pos(("center", "center")))
-            
-            background = CompositeVideoClip([background, image])
+            background_list.append(image)
+            # background = CompositeVideoClip([background, image])
         
-        background = CompositeVideoClip([
-                        background,
-                        ColorClip((video_maker.width, video_maker.height), (0,0,0))\
-                            .set_opacity(0.8)\
-                            .set_duration(59)
-                        ])
+        # background = CompositeVideoClip([
+        #                 background,
+        #                 ColorClip((video_maker.width, video_maker.height), (0,0,0))\
+        #                     .set_opacity(0.8)\
+        #                     .set_duration(59)
+        #                 ])
+        background = CompositeVideoClip(background_list)
         return [background]
     
     def make_content(self, video_maker):
